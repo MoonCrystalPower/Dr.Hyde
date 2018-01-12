@@ -1,0 +1,29 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+
+cache:
+  pip: true
+
+before_install:
+  - cp requirements.txt requirements.orig
+  - cat test-requirements.txt  >> requirements.txt
+  - sed -i.bak '/^-r/d' requirements.txt
+
+before_script:
+  - mv requirements.orig requirements.txt
+
+script:
+  - git clone https://github.com/MoonCrystalPower/PyHtml2Md
+  - cd PyHtml2Md
+  - python setup.py install
+  - "pip install -r requirements.txt"
+  - coala --non-interactive
+  - pytest
+
+after_success:
+  - codecov
+
+notifications:
+  email: false
