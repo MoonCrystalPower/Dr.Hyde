@@ -10,7 +10,7 @@ Dr.Hyde is a Local REST-API server for Dr.Jekyll. And it has a PYHTML2MD module.
 2. `$> pip install -r test-requirements.txt -r requirements.txt`
 
 
-## Requirments
+## Requirements
 * Python3
 * [PyHtml2Md](https://github.com/MoonCrystalPower/PyHtml2Md)
 
